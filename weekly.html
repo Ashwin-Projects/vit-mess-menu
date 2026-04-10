@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .nav-links a.logout {
+            color: #dc3545;
+        }
+        .header-section {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #dayTabs .nav-link {
+            color: var(--primary);
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 8px 15px;
+            margin: 0 4px;
+        }
+        #dayTabs .nav-link.active {
+            background-color: white !important;
+            color: var(--primary) !important;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="page-container">
+        <!-- Simplified Nav -->
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="home.html">Today's Menu</a>
+            <a href="weekly.html">Weekly Schedule</a>
+            <a href="favorites.html">Favorite Food</a>
+            <a href="login.html" class="logout" onclick="clearUserSession()">Logout</a>
+        </div>
+
+        <header class="header-section shadow-sm">
+            <h1 class="fw-bold mb-4">Weekly Explorer</h1>
+
+            <div class="bg-white p-2 d-inline-flex rounded-3 mb-4">
+                <input type="radio" class="btn-check" name="messTypeRadio" id="messVeg" value="Veg" onchange="changeMessType(this.value)">
+                <label class="btn btn-outline-success rounded-2 border-0 fw-bold px-4" for="messVeg">Veg</label>
+
+                <input type="radio" class="btn-check" name="messTypeRadio" id="messNonVeg" value="NonVeg" onchange="changeMessType(this.value)">
+                <label class="btn btn-outline-danger rounded-2 border-0 fw-bold px-4 mx-1" for="messNonVeg">Non-Veg</label>
+
+                <input type="radio" class="btn-check" name="messTypeRadio" id="messSpecial" value="Special" onchange="changeMessType(this.value)">
+                <label class="btn btn-outline-warning rounded-2 border-0 fw-bold px-4 text-dark" for="messSpecial">Special</label>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <ul class="nav nav-pills bg-white bg-opacity-10 p-1 rounded-3" id="dayTabs">
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold active" data-day="Monday" onclick="loadTabMenu('Monday', this)">Mon</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Tuesday" onclick="loadTabMenu('Tuesday', this)">Tue</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Wednesday" onclick="loadTabMenu('Wednesday', this)">Wed</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Thursday" onclick="loadTabMenu('Thursday', this)">Thu</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Friday" onclick="loadTabMenu('Friday', this)">Fri</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Saturday" onclick="loadTabMenu('Saturday', this)">Sat</button></li>
+                    <li class="nav-item"><button class="nav-link py-1 px-3 fw-bold" data-day="Sunday" onclick="loadTabMenu('Sunday', this)">Sun</button></li>
+                </ul>
+            </div>
+        </header>
+
+        <main class="container">
+            <h2 class="h5 fw-bold text-center mb-4 text-primary" id="weeklyMenuTitle">Menu for Monday</h2>
+            <div id="weeklyMenuContainer" class="row g-4 mb-5">
+                <!-- Weekly dynamic menu -->
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

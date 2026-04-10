@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Food</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .nav-links a.active {
+            color: var(--primary-dark);
+        }
+        .nav-links a.logout {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+    <div class="page-container">
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="home.html">Today's Menu</a>
+            <a href="weekly.html">Weekly Schedule</a>
+            <a href="favorites.html" class="active">Favorite Food</a>
+            <a href="login.html" class="logout" onclick="clearUserSession()">Logout</a>
+        </div>
+
+        <header class="favorites-hero">
+            <div>
+                <p class="favorites-kicker">Saved by <span id="favoritesUserName">Your</span></p>
+                <h1>Favorite Food</h1>
+                <p class="favorites-subtitle">All your starred mess items in one place.</p>
+            </div>
+            <div class="favorites-count-card">
+                <span id="favoritesCount">0 saved</span>
+                <small>Use the star beside any food item to add more.</small>
+            </div>
+        </header>
+
+        <section id="favoritesEmptyState" class="favorites-empty-state">
+            <h2>No favorites yet</h2>
+            <p>Go to Today's Menu or Weekly Schedule and click the star beside a food item.</p>
+            <a href="home.html" class="btn btn-primary px-4">Browse Today's Menu</a>
+        </section>
+
+        <main id="favoritesPageGrid" class="favorites-page-grid"></main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

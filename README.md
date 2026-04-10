@@ -14,13 +14,6 @@ VIT MessIt is a simple mess menu website made for students to check daily and we
 - Dark mode and light mode toggle
 - Favorites are saved separately for each logged-in user
 
-## Pages
-- `login.html` - Login and register page
-- `index.html` - Main dashboard
-- `home.html` - Today’s menu
-- `weekly.html` - Weekly schedule
-- `favorites.html` - Favorite food items
-
 ## Technologies Used
 - HTML
 - CSS
